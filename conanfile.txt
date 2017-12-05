@@ -1,0 +1,11 @@
+[requires]
+Boost/1.62.0@lasote/stable
+hdf5/1.10.1@eugenwintersberger/testing
+zlib/1.2.8@conan/stable
+
+[generators]
+cmake
+
+[options]
+Boost:shared=True
+hdf5:shared=True
