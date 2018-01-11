@@ -12,7 +12,7 @@ RUN conan remote add desypackages https://api.bintray.com/conan/eugenwintersberg
 RUN conan remote add conan-community https://api.bintray.com/conan/conan-community/conan
 RUN mkdir /src
 ADD conanfile.txt src/conanfile.txt
-RUN conan install --file src/conanfile.txt --build missing -s build_type=Release -s compiler.libcxx=libstdc++11
+RUN conan install --build missing -s build_type=Release -s compiler.libcxx=libstdc++11 src/conanfile.txt
 RUN conan remove -s -f hdf5/*
 RUN conan remove -s -f boost/*
 
