@@ -8,13 +8,18 @@ RUN apt-get -y install libboost-all-dev
 RUN apt-get clean
 RUN pip install conan
 RUN pip install gitpython
+RUN conan remote remove conan-center
+RUN conan remote remove conan-transit
 RUN conan remote add desypackages https://api.bintray.com/conan/eugenwintersberger/desy-packages
 RUN conan remote add conan-community https://api.bintray.com/conan/conan-community/conan
+RUN conan remote add conan-center https://conan.bintray.com
+RUN conan remote add conan-transit https://conan-transit.bintray.com
+RUN conan user
 RUN mkdir /src
-ADD conanfile.txt src/conanfile.txt
-RUN conan install --build missing -s build_type=Release -s compiler.libcxx=libstdc++11 src/conanfile.txt
-RUN conan remove -s -f hdf5/*
-RUN conan remove -s -f boost/*
+#ADD conanfile.txt src/conanfile.txt
+#RUN conan install --build missing -s build_type=Release -s compiler.libcxx=libstdc++11 src/conanfile.txt
+#RUN conan remove -s -f hdf5/*
+#RUN conan remove -s -f boost/*
 
 
 WORKDIR /src
