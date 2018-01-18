@@ -5,6 +5,7 @@ RUN apt-get -y install cmake ninja-build python-pip
 RUN apt-get -y install g++ doxygen python-sphinx
 RUN apt-get -y install git
 RUN apt-get -y install libboost-all-dev
+RUN apt-get -y install gfortran
 RUN apt-get clean
 RUN pip install conan
 RUN pip install gitpython
